@@ -4,17 +4,17 @@ describe('canGetLicense test suite', () => {
 		test('age higher than boundary', () => {
 				let license = 'A';
 				let age = 121;
-				expect(() => canGetLicense({})).toThrow();
+				expect(() => canGetLicense(license, age)).toThrow();
 		});
 		test('age less than boundary', () => {
 				let license = 'A';
 				let age = -1;
-				expect(() => canGetLicense({})).toThrow();
+				expect(() => canGetLicense(license, age)).toThrow();
 		});
 		test('age is not a number', () => {
 				let license = 'A';
 				let age = "kalle";
-				expect(() => canGetLicense({})).toThrow();
+				expect(() => canGetLicense(license, age)).toThrow();
 		});
 		test('valid input for A license', () => {
 				let license = 'A';
