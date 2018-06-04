@@ -1,0 +1,18 @@
+
+toFahrenheit
+1.	Har ni testat samma saker?
+2.	Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? 
+	Hur kan man tänka för att inte missa sådana fall i framtiden?
+3.	Vilka är de viktigaste testfallen?
+
+canGetLicense
+1.	Har ni testat samma saker?
+2.	Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? 
+	Hur kan man tänka för att inte missa sådana fall i framtiden?
+3.	Vilka är de viktigaste testfallen?
+
+bank
+1.	Har ni testat samma saker?
+2.	Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? 
+	Hur kan man tänka för att inte missa sådana fall i framtiden?
+3.	Vilka är de viktigaste testfallen?
