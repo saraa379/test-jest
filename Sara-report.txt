@@ -1,18 +1,117 @@
+Kod granskning: Anna och Alexandro
 
 toFahrenheit
 1.	Har ni testat samma saker?
+	Följande testfall hade vi genemsamma:
+	- Correct answer for valid input celcius as number
+	- Correct answer for valid input celcius as string
+	- Correct answer (NaN) för invalid input number which is less than valid celcius ( -273.16)
+	- Correct answer for valid input celcius for lowest limit (-273.15)
+	- Correct answer (NaN) för invalid input as string
+	- Correct answer (NaN) för undefined as input
+	- Correct answer (NaN) för null as input
+	- correct answer (NaN) för Infinity as input
+
+	
+
 2.	Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? 
 	Hur kan man tänka för att inte missa sådana fall i framtiden?
+
+	Testfall som saknas i min kod:
+	- correct result for a non-valid string temperature ('-273.16')
+	  Förklaring: I min kod, när string förvandlas till valid celcius, då körs samma funktion convert(degree)
+		      för både string och number input. Så tänkte jag att det skulle bli redundant testfall
+		      för att jag har redan testfall för number input -273.16.
+
+
 3.	Vilka är de viktigaste testfallen?
+	De viktigaste testfallen är: 
+	- correct answer for valid input celcius as number (huvud mål av funktionen)
+	- correct answer for valid input celcius as string
+	Test fallen för alla gränsvärdena
+	- correct answer for input -273.16 
+	- correct answer for valid input celcius for lowest limit (-273.15)
+	- testfallen som testar invalid input så att programmet inte crashar, istället returnerar NaN
+
+
+
 
 canGetLicense
 1.	Har ni testat samma saker?
+	Följande testfall  hade vi genemsamma:
+	- Minderårig för licence A
+	- Rätt ålder för licence B
+	- Rätt ålder för licence C
+	- Minderårig för licence D
+	- Ålder högre än gränsvärde (121)
+	- Minus ålder som input
+	- Sträng som ålder input 
+
 2.	Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? 
 	Hur kan man tänka för att inte missa sådana fall i framtiden?
+
+	Test fall som saknas i min kod:
+	- Decimaltal som ålder input
+	  Förklaring: Jag tänkte inte på decimaltal som ålder testfall för att min kod hade inte specific
+		      ifsats för det fallet. För att inte missa sådana testfall, behöver man tänka på alla  möjliga 
+		      input typer när man skriver funktionen.
+	
 3.	Vilka är de viktigaste testfallen?
+	De viktigaste testfallen är: 
+	- Rätt input ska ge rätt svar enligt license typ och ålder kombination
+	- Ogiltiga datatyper ska inte crasha systemet. Till exempel: string, decimaltal som ålder
+	- Testning av gränsvärdena för ålder Till exempel: 121, -1, 0, 120
+
+
 
 bank
 1.	Har ni testat samma saker?
+	Följande testfall hade vi genemsamma:
+	- Deposit with correct amount (number) to correct account (Kalle)
+	- Deposit with amount as undefined
+	- Withdraw with correct amount (number) from correct account (Kalle)
+	- Withdraw with minus amount
+	- Withdraw: amount is bigger than sender's balance
+	- Withdraw: amount is 0
+	- Withdraw with invalid account
+	- Transfer with correct amount (number) to correct account (Kalle)
+	- Transfer: amount is less than sender's balance
+	
+	
+
 2.	Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? 
 	Hur kan man tänka för att inte missa sådana fall i framtiden?
+	
+	Test fall som saknas i min kod:
+	- Deposit with amount as string, null, Infinity
+	- Withdraw with amount as string, null, Infinity, array
+	- Withdraw: account as number, string, array
+	- Transfer with amount as string ('100')
+	- Transfer: amount is string och less than sender's balance
+	- Transfer with minus amount
+	
+	  Förklaring: I min kod, om amount är inte number, alla funktionena deposit, withdraw och transfer,  ska se den som 
+		      ogiltig parameter och kastar exception. Också amount i sträng förvandlas inte till number typ. 
+		      Så alla de fallena: amount som sträng, null, undefined och Infinity ska gå till samma if sats 
+		      ((typeof amount) !== 'number'). Min test suite har testfall för amount som undefined för att testa 
+		      den här if satsen. Fast kanske bättre att testa också amount i andra data typer.
+		      Account är också testad i if satsen ((typeof account.balance) !== 'number'). Så allt annat än number
+		      som account balance faller i den här satsen och funktionen kastar exception. Den if satsen testad i test fallen
+		      'Account som undefined'.
+		      Tranfser funktionen tar också sträng som ogiltig amount och kastar exception.
+	  
+
 3.	Vilka är de viktigaste testfallen?
+
+	De viktigaste testfallen är: 
+	- Deposit med rätt input (amount och account) ska ge rätt svar 
+	- Deposit med ogiltig account ska kasta exception
+	- Deposit med ogiltig amount ska kasta exception
+	- Withdraw med rätt input (amount och account) ska ge rätt svar 
+	- Withdraw med ogiltig account ska kasta exception
+	- Withdraw med ogiltig amount ska kasta exception
+	- Withdraw när amount är mer än balance ska kasta exception
+	- Transfer med rätt input (amount och account) ska ge rätt svar 
+	- Transfer med ogiltig account ska kasta exception
+	- Transfer med ogiltig amount ska kasta exception
+	- Transfer när amount är mer än sender's balance ska kasta exception
